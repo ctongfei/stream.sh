@@ -1,7 +1,7 @@
 #!/bin/bash
 func=$@
 while read LINE; do
-  pattern="s#<0>#$LINE#g"
+  pattern="s#§0#$LINE#g"
   new=$(echo $func | sed -e $pattern)
   eval $new
 done < /dev/stdin
