@@ -1,0 +1,10 @@
+#!/bin/bash
+func=$@
+while read LINE; do
+  pattern="s#§0|§#$LINE#g"
+  new=$(echo $func | sed -E -e $pattern)
+  if $new; then
+    echo $LINE
+  fi
+done < /dev/stdin
+
